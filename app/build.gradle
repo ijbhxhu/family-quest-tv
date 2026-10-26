@@ -1,0 +1,71 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'tw.familyquest.tv'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'tw.familyquest.tv'
+        minSdk 26
+        targetSdk 34
+        versionCode 3
+        versionName '0.2.0'
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            signingConfig signingConfigs.debug
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.json:json:20240303'
+}
+
+// Private files stay outside the repository. A Sync task removes stale private assets
+// when switching back to the public default build.
+def bankFile = providers.gradleProperty('familyQuestWordlist').map { rootProject.file(it) }
+        .getOrElse(rootProject.file('config/wordlists.json'))
+def wallpaperPath = providers.gradleProperty('familyQuestWallpaper').orNull
+def generatedContent = layout.buildDirectory.dir('generated/familyContent')
+// Validate in an ordinary task: Sync skips its actions when a source is missing.
+tasks.register('validateFamilyContent') {
+    doLast {
+        if (!bankFile.isFile() || bankFile.length()>4_000_000) throw new GradleException('Missing or oversized wordlist JSON')
+        def bank = new groovy.json.JsonSlurper().parse(bankFile,'UTF-8')
+        if (bank.schemaVersion != 1 || !(bank.title instanceof String) || !bank.title.trim() || bank.title.length()>40)
+            throw new GradleException('wordlists.json needs schemaVersion 1 and a title (1–40 characters)')
+        if (!(bank.levels instanceof List) || bank.levels*.id.sort() != ['advanced','beginner','intermediate'])
+            throw new GradleException('Include beginner, intermediate and advanced levels exactly once')
+        def ids = [] as Set
+        bank.levels.each { level ->
+            if (!(level.name instanceof String) || !level.name.trim() || level.name.length()>20 || !(level.words instanceof List) || !level.words.any { it.enabled != false })
+                throw new GradleException('Each level needs a name and an enabled word')
+            level.words.each { word ->
+                if (!(word.id instanceof String) || !word.id.trim() || word.id.length()>80 || !ids.add(word.id.trim())) throw new GradleException('Word ids must be nonempty and unique')
+                if (!(word.zh instanceof String) || !word.zh.trim() || word.zh.length()>64) throw new GradleException('Each word needs a Chinese prompt (1–64 characters)')
+                if (word.containsKey('enabled') && !(word.enabled instanceof Boolean)) throw new GradleException('enabled must be a boolean')
+                if (word.containsKey('hint') && (!(word.hint instanceof String) || word.hint.length()>100)) throw new GradleException('hint must be a string of at most 100 characters')
+                if (word.containsKey('acceptedAnswers') && !(word.acceptedAnswers instanceof List)) throw new GradleException('acceptedAnswers must be an array')
+                ([word.english] + (word.acceptedAnswers ?: [])).each { answer ->
+                    if (!(answer instanceof String) || !answer.trim() || answer.length()>24 || !(answer ==~ /[a-zA-Z .’'‐‑-]+/))
+                        throw new GradleException('Answers must be 1–24 English characters, spaces, apostrophes, hyphens or periods: ' + word.id)
+                }
+            }
+        }
+        if(wallpaperPath != null && !rootProject.file(wallpaperPath).isFile()) throw new GradleException('Custom wallpaper file does not exist')
+    }
+}
+tasks.register('prepareFamilyContent', Sync) {
+    dependsOn 'validateFamilyContent'
+    from(bankFile) { rename { 'wordlists.json' } }
+    if (wallpaperPath != null) from(rootProject.file(wallpaperPath)) { rename { 'wallpaper.jpg' } }
+    into(generatedContent)
+}
+android.sourceSets.main.assets.srcDir(generatedContent)
+tasks.named('preBuild').configure { dependsOn 'prepareFamilyContent' }

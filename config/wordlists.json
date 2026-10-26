@@ -1,0 +1,335 @@
+{
+  "schemaVersion": 1,
+  "title": "方塊單字冒險",
+  "license": "CC0-1.0",
+  "attribution": "Original example prompts by Family Quest contributors, 2026.",
+  "levels": [
+    {
+      "id": "beginner",
+      "name": "初階",
+      "words": [
+        {
+          "id": "beginner-001",
+          "english": "apple",
+          "zh": "蘋果"
+        },
+        {
+          "id": "beginner-002",
+          "english": "book",
+          "zh": "書本"
+        },
+        {
+          "id": "beginner-003",
+          "english": "cat",
+          "zh": "貓"
+        },
+        {
+          "id": "beginner-004",
+          "english": "dog",
+          "zh": "狗"
+        },
+        {
+          "id": "beginner-005",
+          "english": "water",
+          "zh": "水"
+        },
+        {
+          "id": "beginner-006",
+          "english": "happy",
+          "zh": "快樂的"
+        },
+        {
+          "id": "beginner-007",
+          "english": "red",
+          "zh": "紅色"
+        },
+        {
+          "id": "beginner-008",
+          "english": "blue",
+          "zh": "藍色"
+        },
+        {
+          "id": "beginner-009",
+          "english": "sun",
+          "zh": "太陽"
+        },
+        {
+          "id": "beginner-010",
+          "english": "moon",
+          "zh": "月亮"
+        },
+        {
+          "id": "beginner-011",
+          "english": "tree",
+          "zh": "樹"
+        },
+        {
+          "id": "beginner-012",
+          "english": "bird",
+          "zh": "鳥"
+        },
+        {
+          "id": "beginner-013",
+          "english": "milk",
+          "zh": "牛奶"
+        },
+        {
+          "id": "beginner-014",
+          "english": "fish",
+          "zh": "魚"
+        },
+        {
+          "id": "beginner-015",
+          "english": "home",
+          "zh": "家"
+        },
+        {
+          "id": "beginner-016",
+          "english": "school",
+          "zh": "學校"
+        },
+        {
+          "id": "beginner-017",
+          "english": "friend",
+          "zh": "朋友"
+        },
+        {
+          "id": "beginner-018",
+          "english": "green",
+          "zh": "綠色"
+        },
+        {
+          "id": "beginner-019",
+          "english": "star",
+          "zh": "星星"
+        },
+        {
+          "id": "beginner-020",
+          "english": "thank you",
+          "zh": "謝謝"
+        }
+      ]
+    },
+    {
+      "id": "intermediate",
+      "name": "中階",
+      "words": [
+        {
+          "id": "intermediate-001",
+          "english": "library",
+          "zh": "圖書館"
+        },
+        {
+          "id": "intermediate-002",
+          "english": "weather",
+          "zh": "天氣"
+        },
+        {
+          "id": "intermediate-003",
+          "english": "rainbow",
+          "zh": "彩虹"
+        },
+        {
+          "id": "intermediate-004",
+          "english": "garden",
+          "zh": "花園"
+        },
+        {
+          "id": "intermediate-005",
+          "english": "breakfast",
+          "zh": "早餐"
+        },
+        {
+          "id": "intermediate-006",
+          "english": "careful",
+          "zh": "小心的"
+        },
+        {
+          "id": "intermediate-007",
+          "english": "different",
+          "zh": "不同的"
+        },
+        {
+          "id": "intermediate-008",
+          "english": "practice",
+          "zh": "練習"
+        },
+        {
+          "id": "intermediate-009",
+          "english": "remember",
+          "zh": "記得"
+        },
+        {
+          "id": "intermediate-010",
+          "english": "together",
+          "zh": "一起"
+        },
+        {
+          "id": "intermediate-011",
+          "english": "neighbor",
+          "zh": "鄰居",
+          "acceptedAnswers": [
+            "neighbour"
+          ]
+        },
+        {
+          "id": "intermediate-012",
+          "english": "color",
+          "zh": "顏色",
+          "acceptedAnswers": [
+            "colour"
+          ]
+        },
+        {
+          "id": "intermediate-013",
+          "english": "favorite",
+          "zh": "最喜愛的",
+          "acceptedAnswers": [
+            "favourite"
+          ]
+        },
+        {
+          "id": "intermediate-014",
+          "english": "mountain",
+          "zh": "山"
+        },
+        {
+          "id": "intermediate-015",
+          "english": "journey",
+          "zh": "旅程"
+        },
+        {
+          "id": "intermediate-016",
+          "english": "healthy",
+          "zh": "健康的"
+        },
+        {
+          "id": "intermediate-017",
+          "english": "weekend",
+          "zh": "週末"
+        },
+        {
+          "id": "intermediate-018",
+          "english": "question",
+          "zh": "問題"
+        },
+        {
+          "id": "intermediate-019",
+          "english": "answer",
+          "zh": "答案"
+        },
+        {
+          "id": "intermediate-020",
+          "english": "good morning",
+          "zh": "早安"
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "name": "高階",
+      "words": [
+        {
+          "id": "advanced-001",
+          "english": "curiosity",
+          "zh": "好奇心"
+        },
+        {
+          "id": "advanced-002",
+          "english": "environment",
+          "zh": "環境"
+        },
+        {
+          "id": "advanced-003",
+          "english": "responsibility",
+          "zh": "責任"
+        },
+        {
+          "id": "advanced-004",
+          "english": "imagination",
+          "zh": "想像力"
+        },
+        {
+          "id": "advanced-005",
+          "english": "cooperation",
+          "zh": "合作"
+        },
+        {
+          "id": "advanced-006",
+          "english": "confidence",
+          "zh": "信心"
+        },
+        {
+          "id": "advanced-007",
+          "english": "opportunity",
+          "zh": "機會"
+        },
+        {
+          "id": "advanced-008",
+          "english": "achievement",
+          "zh": "成就"
+        },
+        {
+          "id": "advanced-009",
+          "english": "creativity",
+          "zh": "創造力"
+        },
+        {
+          "id": "advanced-010",
+          "english": "independent",
+          "zh": "獨立的"
+        },
+        {
+          "id": "advanced-011",
+          "english": "communicate",
+          "zh": "溝通"
+        },
+        {
+          "id": "advanced-012",
+          "english": "encourage",
+          "zh": "鼓勵"
+        },
+        {
+          "id": "advanced-013",
+          "english": "respectful",
+          "zh": "尊重他人的"
+        },
+        {
+          "id": "advanced-014",
+          "english": "sustainable",
+          "zh": "可持續的"
+        },
+        {
+          "id": "advanced-015",
+          "english": "discover",
+          "zh": "發現"
+        },
+        {
+          "id": "advanced-016",
+          "english": "improve",
+          "zh": "改善"
+        },
+        {
+          "id": "advanced-017",
+          "english": "solution",
+          "zh": "解決方法"
+        },
+        {
+          "id": "advanced-018",
+          "english": "challenge",
+          "zh": "挑戰"
+        },
+        {
+          "id": "advanced-019",
+          "english": "patient",
+          "zh": "有耐心的"
+        },
+        {
+          "id": "advanced-020",
+          "english": "take turns",
+          "zh": "輪流"
+        }
+      ]
+    }
+  ]
+}

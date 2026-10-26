@@ -1,0 +1,9 @@
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">@font/quest_font</item>
+        <item name="android:colorAccent">#C6F36A</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowBackground">#101E32</item>
+    </style>
+    <string name="gate_description">家長選擇的 App 時間用完時，返回單字練習。只讀取目前 App 名稱，不讀螢幕文字、不記錄按鍵，也不攔截遙控器音量。可隨時在系統設定停用。</string>
+</resources>

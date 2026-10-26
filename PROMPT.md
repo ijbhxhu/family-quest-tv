@@ -1,0 +1,7 @@
+# Set up Family Quest with your own AI assistant
+
+Copy this prompt into your coding assistant while this repository is open. Replace the bracketed preferences. Never paste your PIN, ADB private keys, or signing keys into a prompt.
+
+> Read AGENTS.md and README.md, then help me build and set up Family Quest TV from this source. I want [number] correct answers to earn [minutes] minutes, with practice and viewing available after [HH:mm]. Use [beginner/intermediate/advanced] and let me select restricted apps on the TV. Use the bundled sample questions, or help me prepare my own legally reusable JSON using docs/wordlists.md. Build and run the documented checks before installation. Identify my intended TV and use an explicit ADB serial for every device command. Preserve installed app data and my signing key. Do not change Home, disable packages, open factory menus, root, uninstall, or reduce minSdk. Guide me to set my PIN directly on the TV and enable only the required accessibility service. Verify the real remote, restrictions, same-network phone dashboard, and reboot behavior. Finally help me turn off debugging, revoke ADB authorizations, and verify the debug port is closed. Keep my private files and device details out of commits and public reports.
+
+For feature changes, describe the intended behavior and ask your assistant to review `docs/testing.md`. Use a branch for each change. Publication requires an explicit user request; a local TV installation does not authorize a public repository or upload.

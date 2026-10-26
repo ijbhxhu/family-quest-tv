@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Family Quest 家長管理</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body><main><header><div class="mark" aria-hidden="true"><i></i><i></i><i></i></div><div><p class="eyebrow">FAMILY QUEST</p><h1>一起學，開心玩。</h1></div></header>
+<p id="notice" role="status" aria-live="polite"></p>
+<section id="login"><h2>家長登入</h2><p>使用電視上設定的家長 PIN。手機與電視需在相同區網。</p><label for="pin">家長 PIN</label><input id="pin" type="password" inputmode="numeric" autocomplete="current-password" minlength="4" maxlength="12"><button id="sign-in" class="primary">登入管理</button></section>
+<div id="dashboard" hidden>
+<div class="metrics"><section><span>本次倒數</span><strong id="remaining">—</strong></section><section><span>已存分鐘</span><strong id="bank">—</strong></section></div>
+<section><div class="section-heading"><h2>今天的挑戰</h2><span id="gate" class="pill">—</span></div><p id="progress"></p>
+<div class="actions"><button id="start" class="primary">開始計時</button><button id="stop">結束本次倒數</button></div>
+<label for="bonus">額外獎勵（1–60 分鐘）</label><div class="inline"><input id="bonus" type="number" min="1" max="60" value="10"><button id="give-bonus">存入分鐘</button></div>
+<p class="note">按開始後持續倒數；離開 App 或待機不會暫停。重開機會結束本次倒數，尚未開始的存入分鐘會保留。</p></section>
+<section><h2>學習與時間規則</h2><div class="fields"><label>單字級別<select id="level"><option value="beginner">初階</option><option value="intermediate">中階</option><option value="advanced">高階</option></select></label><label>答對幾題<input id="questions" type="number" min="1" max="50"></label><label>換幾分鐘<input id="minutes" type="number" min="1" max="60"></label></div>
+<label for="start-time">每日開放時間</label><input id="start-time" type="time" value="16:00" required><p class="note">開放前不能答題、開始計時或使用受限 App。以電視的本地時間為準；設為 00:00 即全天開放。</p>
+<label class="check"><input id="enabled" type="checkbox"><span>啟用 App 使用限制</span></label><p>勾選需要完成單字才能使用的 App：</p><div id="apps" class="app-list"></div><button id="save" class="primary">儲存規則</button><p class="note">僅限制這台電視的所選 App；系統設定、首頁、輸入來源維持可用。無障礙服務停用時，App 限制不會生效。</p></section>
+<section><h2>簡易遙控</h2><div class="actions"><button id="home">首頁</button><button id="down">音量 −</button><button id="up">音量 ＋</button></div><label for="launch-app">開啟 App</label><div class="inline"><select id="launch-app"></select><button id="launch">開啟</button></div><p class="note">完整方向鍵與文字輸入可使用 Google TV 手機遙控器。</p></section>
+<button id="logout" class="quiet">登出所有手機</button>
+</div><footer><span id="wordlist-title">Family Quest</span> · 本機保存 · 無廣告、無追蹤</footer></main></body></html>
